@@ -27,7 +27,7 @@ Com imagem baixada e network criado, podemos instânciar nossos contêiners, e p
 
 ``` docker run -d --rm -p 27017:27017 --name mongo10 --network mongoCluster mongodb/mongodb-community-server:latest --replSet myReplicaSet --bind_ip localhost,mongo10 ```
 
-Com esse comando criamos o primeiro contêiner na porta host 27017 com o nome "mongo10". Repetimos esse mesmo comando para os próximos 3 contêiner alterando apenas esses dois detalhes mencionados. Ficando assim:
+Com esse comando criamos o primeiro contêiner na porta host 27017 com o nome "mongo10". Repetimos esse mesmo comando para os próximos 3 contêiners alterando apenas esses dois detalhes mencionados. Ficando assim:
 
 ``` docker run -d --rm -p 27018:27017 --name mongo20 --network mongoCluster mongodb/mongodb-community-server:latest --replSet myReplicaSet --bind_ip localhost,mongo20 ```
 
@@ -39,7 +39,7 @@ Quarto e último contêiner:
 
 ``` docker run -d --rm -p 27020:27017 --name mongo40 --network mongoCluster mongodb/mongodb-community-server:latest --replSet myReplicaSet --bind_ip localhost,mongo40 ```
 
-O próximo passo é criar o conjunto de réplicas real com os três membros. Para isso utilizamos o comando:
+O próximo passo é criar o conjunto de réplicas real com os quatro membros. Para isso utilizamos o comando:
 
 ``` docker exec -it mongo10 mongosh ```
 
